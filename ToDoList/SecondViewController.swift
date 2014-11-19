@@ -9,6 +9,9 @@
 import UIKit
 
 class SecondViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet var txtTask: UITextField!
+    @IBOutlet var txtDesc: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +22,16 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func buttonAddTask_Click(sender: UIButton){
+        println("The Button was clicked.")
+    }
+    
+    //Touch Functions
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
     //UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder();
